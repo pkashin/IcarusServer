@@ -15,7 +15,7 @@ Translated into English - Copilot
 
 ## Installation
 
-1. Download and unpack the archive {release} on the target server.
+1. Download and unpack the archive [release](https://github.com/pkashin/IcarusServer/releases/latest) on the target server.
 2. Run the batch file `install.bat` as administrator, which in turn will open the ports `17777/udp` and `27015/udp` in the firewall. Next, it will install `SteamCMD` and download the game to the `C:\Icarus` folder. It will also download `Visual C++ Redistributable` and `DirectX`, which must be installed manually.
 
 ## Launch
