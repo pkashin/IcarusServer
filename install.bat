@@ -3,7 +3,7 @@ netsh advfirewall firewall add rule name="Icarus open PORT 17777/udp" protocol=U
 netsh advfirewall firewall add rule name="Icarus open PORT 27015/udp" protocol=UDP localport=27015 action=allow dir=IN
 
 :: additional software for Windows Server 2022
-curl -o vcredist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
+curl -o vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 curl -o directx_Jun2010_redist.exe https://download.microsoft.com/download/8/4/A/84A35BF1-DAFE-4AE8-82AF-AD2AE20B6B14/directx_Jun2010_redist.exe
 
 :: download and install steamcmd
