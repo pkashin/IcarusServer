@@ -11,5 +11,6 @@ mkdir "C:\dx"
 curl -o steamcmd.zip https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip
 mkdir "C:\steamcmd"
 tar -xf steamcmd.zip -C "C:\steamcmd"
+del steamcmd.zip
 cd "C:\steamcmd"
 steamcmd +login anonymous +force_install_dir "C:\Icarus" +app_update 2089300 validate +quit
