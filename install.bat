@@ -7,9 +7,7 @@ cd "C:\"
 mkdir "C:\Icarus\Control"
 cd /d "%~dp0"
 copy /y Settings.ini "C:\Icarus\Control\Settings.ini"
-cd \control
-copy /y start.bat "C:\Icarus\Control\start.bat"
-copy /y update.bat "C:\Icarus\Control\update.bat"
+xcopy /y control "C:\Icarus\Control"
 
 echo add autorun start.bat
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Icarus Server" /t REG_SZ /d "C:\Icarus\Control\start.bat" /f
