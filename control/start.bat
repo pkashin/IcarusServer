@@ -20,6 +20,7 @@ if not exist "C:\Icarus\Icarus\Saved\Config\WindowsServer\ServerSettings.ini" (
     echo LastProspectName= >> ServerSettings.ini
     echo AllowNonAdminsToLaunchProspects=True >> ServerSettings.ini
     echo AllowNonAdminsToDeleteProspects=False >> ServerSettings.ini
+    goto :end
 )
 
 cd "C:\Icarus\Icarus\Saved\Config\WindowsServer"
@@ -38,7 +39,7 @@ for /f "tokens=2 delims==" %%i in ('findstr AllowNonAdminsToDeleteProspects Serv
 
 if not %JoinPassword%==%JoinPassword2% set res=true
 if not %AdminPassword%==%AdminPassword2% set res=true
-if %res%==true (
+if defined res (
     del ServerSettings.ini
     echo [/Script/Icarus.DedicatedServerSettings] > ServerSettings.ini
     echo SessionName=%SessionName% >> ServerSettings.ini
@@ -53,6 +54,10 @@ if %res%==true (
     echo LastProspectName=%LastProspectName% >> ServerSettings.ini
     echo AllowNonAdminsToLaunchProspects=%AllowNonAdminsToLaunchProspects% >> ServerSettings.ini
     echo AllowNonAdminsToDeleteProspects=%AllowNonAdminsToDeleteProspects% >> ServerSettings.ini
+    goto :end
+) else (
+    goto :end
 )
 
+:end
 start C:\Icarus\IcarusServer.exe -SteamServerName=%ServerName% -Port=1777 -QueryPort=27015 -Log
