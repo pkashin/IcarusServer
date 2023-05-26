@@ -10,7 +10,7 @@ copy /y Settings.ini "C:\Icarus\Control\Settings.ini"
 xcopy /y control "C:\Icarus\Control"
 
 echo add autorun start.bat
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Icarus Server" /t REG_SZ /d "C:\Icarus\Control\start.bat" /f
+schtasks /create /tn "IcarusServer" /tr "C:\Icarus\Control\start.bat" /sc onstart /ru SYSTEM /f
 
 echo download and install steamcmd
 cd /d "%~dp0"
@@ -21,7 +21,7 @@ del steamcmd.zip
 cd "C:\steamcmd"
 steamcmd +login anonymous +force_install_dir "C:\Icarus" +app_update 2089300 validate +quit
 
-echo additional software for Windows Server 2022
+echo install additional software for Windows Server 2022
 cd /d "%~dp0"
 curl -o VC_redist.x64.exe https://download.visualstudio.microsoft.com/download/pr/eaab1f82-787d-4fd7-8c73-f782341a0c63/917C37D816488545B70AFFD77D6E486E4DD27E2ECE63F6BBAAF486B178B2B888/VC_redist.x64.exe
 VC_redist.x64.exe /install /quiet /norestart
