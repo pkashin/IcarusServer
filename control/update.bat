@@ -1,4 +1,4 @@
-taskkill /pid IcarusServer-Win64-Shipping.exe
+taskkill /pid IcarusServer-Win64-Shipping.exe /f
 cd "C:\steamcmd"
 steamcmd +login anonymous +force_install_dir "C:\Icarus" +app_update 2089300 validate +quit
 cd "C:\Icarus\Control"

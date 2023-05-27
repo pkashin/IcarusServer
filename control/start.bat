@@ -1,4 +1,4 @@
-taskkill /pid IcarusServer-Win64-Shipping.exe
+taskkill /pid IcarusServer-Win64-Shipping.exe /f
 cd "C:\Icarus\Control"
 for /f "tokens=2 delims==" %%i in ('findstr ServerName Settings.ini') do set ServerName=%%i
 for /f "tokens=2 delims==" %%i in ('findstr JoinPassword Settings.ini') do set JoinPassword2=%%i
